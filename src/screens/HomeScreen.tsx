@@ -2,6 +2,8 @@ import moment from 'moment';
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import WeatherCoordinates from '../components/WeatherCoordinates';
+import WeatherCurrent from '../components/WeatherCurrent';
 import {Colors} from './constants';
 
 // const formatDate = (date: Date) => {
@@ -40,6 +42,11 @@ const HomeScreen = () => {
         <Text style={styles.data}>{now.format('MMM DD, YYYY')}</Text>
         <Text style={styles.day}>{now.format('dddd')}</Text>
       </View>
+      <WeatherCoordinates />
+      <Text testID="home-screen-divider" style={styles.divider}>
+        Or
+      </Text>
+      <WeatherCurrent />
     </LinearGradient>
   );
 };
@@ -61,6 +68,10 @@ const styles = StyleSheet.create({
   day: {
     color: Colors.WHITE,
     fontSize: 21,
+  },
+  divider: {
+    color: Colors.WHITE,
+    textAlign: 'center',
   },
 });
 
